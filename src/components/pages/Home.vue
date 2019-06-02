@@ -34,6 +34,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import * as TYPE from '@/store/action-types'
+
 export default {
   data: () => ({
     cards: [
@@ -53,6 +56,15 @@ export default {
         flex: 6
       }
     ]
-  })
+  }),
+  methods: {
+    ...mapActions({
+      fetchPosts: `posts/${TYPE.FETCH_POSTS_FOR_HOME_PAGE}`
+    })
+  },
+  created() {
+    this.fetchPosts()
+    console.log(this.$store.state)
+  }
 }
 </script>

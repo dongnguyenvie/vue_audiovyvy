@@ -30,8 +30,6 @@
   </v-app>
 </template>
 <script>
-import { mapActions } from 'vuex'
-import * as TYPE from '.'
 export default {
   data: () => ({
     drawer: null
