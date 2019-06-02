@@ -7,7 +7,6 @@
     "trailingComma": "none",
     "singleQuote": true,
     "arrowParens": "always",
-    "printWidth": 200,
     "bracketSpacing": true,
     "jsxBracketSameLine": true,
     "endOfLine": "auto",

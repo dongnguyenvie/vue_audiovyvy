@@ -1,10 +1,32 @@
+import { HQL } from '../../../service'
+
 const state = {
-  posts: []
+  posts: {}
 }
 
 const getters = {}
 const mutations = {}
-const actions = {}
+const actions = {
+  async fetchPosts({ commit, state }, params) {
+    const res = await HQL.post('', {
+      query: `
+        query GET_POSTS {
+          posts {
+            edges {
+              node {
+                id
+                title
+                date
+                content
+              }
+            }
+          }
+        }
+        `
+    })
+    state.posts = res.data
+  }
+}
 
 export default {
   namespaced: true,
