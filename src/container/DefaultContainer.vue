@@ -20,8 +20,8 @@
     </v-toolbar>
     <v-content>
       <v-container fill-height>
-        <v-layout justify-center align-center>
-          <v-flex shrink>
+        <v-layout>
+          <v-flex>
             <router-view></router-view>
           </v-flex>
         </v-layout>
@@ -30,6 +30,8 @@
   </v-app>
 </template>
 <script>
+import { mapActions } from 'vuex'
+import * as TYPE from '.'
 export default {
   data: () => ({
     drawer: null

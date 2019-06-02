@@ -1,11 +1,11 @@
 import DefaultContainer from '@/container/DefaultContainer'
 
 const ping = {
-  path: '/',
+  path: '/ping',
   component: DefaultContainer,
   children: [
     {
-      path: 'ping',
+      path: '',
       name: 'listMaps',
       meta: {
         label: 'Manage Maps',
@@ -15,4 +15,19 @@ const ping = {
     }
   ]
 }
-export default [ping]
+const home = {
+  path: '/',
+  component: DefaultContainer,
+  children: [
+    {
+      path: '',
+      name: 'home-page',
+      meta: {
+        label: 'Home page',
+        title: 'Home page'
+      },
+      component: () => import('../views/Home.vue')
+    }
+  ]
+}
+export default [ping, home]
