@@ -1,10 +1,10 @@
-### What is vue audiovyvy ?
+# What is vue audiovyvy ?
 ```
 vue audiovyvy is audio page using wordpress for backend
 using api is Graphql
 using core is Vuejs
 ```
-# How to running project ?
+### How to running project ?
 ```
   "scripts": {
     "serve": "vue-cli-service serve",
