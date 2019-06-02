@@ -8,7 +8,7 @@ const getters = {}
 const mutations = {}
 const actions = {
   async fetchPosts({ commit, state }, params) {
-    const res = await HQL.post('', {
+    const res = await HQL.post(null, {
       query: `
         query GET_POSTS {
           posts {
