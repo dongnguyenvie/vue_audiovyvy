@@ -6,16 +6,16 @@ const ping = {
   children: [
     {
       path: '',
-      name: 'listMaps',
+      name: 'ping-page',
       meta: {
-        label: 'Manage Maps',
-        title: 'List of Maps'
+        label: 'ping pages',
+        title: 'ping pages'
       },
       component: () => import('../views/Ping.vue')
     }
   ]
 }
-const home = {
+const pages = {
   path: '/',
   component: DefaultContainer,
   children: [
@@ -27,7 +27,17 @@ const home = {
         title: 'Home page'
       },
       component: () => import('../views/Home.vue')
+    },
+    {
+      path: 'single-audio/:slug',
+      name: 'single-audio',
+      meta: {
+        label: 'single audio page',
+        title: 'single audio page'
+      },
+      component: () => import('../views/Single.vue')
     }
   ]
 }
-export default [ping, home]
+
+export default [ping, pages]
