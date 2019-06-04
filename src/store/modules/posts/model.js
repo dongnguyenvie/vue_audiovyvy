@@ -2,6 +2,7 @@ export const GET_POSTS = `
 query GET_POSTS($first: Int) {
   hot: posts(first: $first, where: {categoryNotIn: [1, 13], tag: "top-truyen", status: PUBLISH}) {
     nodes {
+      id
       postId
       title
       uri
@@ -13,6 +14,7 @@ query GET_POSTS($first: Int) {
   new: posts(first: $first, where: {categoryNotIn: [1, 13], status: PUBLISH}) {
     nodes {
       id
+      postId
       title
       uri
       featuredImage {
@@ -25,6 +27,7 @@ query GET_POSTS($first: Int) {
       postId
       title
       uri
+      id
       featuredImage {
         sourceUrl
       }
@@ -32,6 +35,7 @@ query GET_POSTS($first: Int) {
   }
   _ma: posts(first: $first, where: {categoryNotIn: [1, 13], categoryId: 28, status: PUBLISH}) {
     nodes {
+      id
       postId
       title
       uri
@@ -42,6 +46,7 @@ query GET_POSTS($first: Int) {
   }
   _quan_truong: posts(first: $first, where: {categoryNotIn: [1, 13], categoryId: 6, status: PUBLISH}) {
     nodes {
+      id
       postId
       title
       uri

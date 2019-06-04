@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <router-view/>
+    <div class="text-xs-center loading-io" v-if="$store.state.loading">
+      <v-progress-circular :size="50" color="#FF9800" indeterminate></v-progress-circular>
+    </div>
   </div>
 </template>
 

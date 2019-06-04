@@ -1,4 +1,4 @@
-import * as TYPE from '../../action-types'
+import * as TYPE from '../../actionTypes'
 import * as MODEL from './model'
 import { HQL } from '../../../service'
 import _ from 'lodash'
@@ -39,6 +39,7 @@ const mutations = {
 }
 const actions = {
   async [TYPE.FETCH_POSTS_FOR_HOME_PAGE]({ commit }, params) {
+    commit(TYPE.FETCH, null, { root: true })
     try {
       const res = await HQL.post(null, {
         query: MODEL.GET_POSTS,
@@ -47,7 +48,9 @@ const actions = {
         }
       })
       commit(TYPE.SET_POSTS, res.data.data)
+      commit(TYPE.DONE, null, { root: true })
     } catch (error) {
+      commit(TYPE.DONE, null, { root: true })
       console.log('err')
     }
   }
