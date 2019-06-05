@@ -1,15 +1,31 @@
 <template>
-  <div>
-    <h1 v-html="post.title"></h1>
-    <v-spacer></v-spacer>
-    <blockquote class="blockquote" v-html="post.content"></blockquote>
-  </div>
+  <v-layout row wrap>
+    <v-flex xs12>
+      <v-layout>
+        <v-card>
+          <v-toolbar>
+            <v-toolbar-side-icon></v-toolbar-side-icon>
+            <v-toolbar-title v-html="post.title"></v-toolbar-title>
+          </v-toolbar>
+        </v-card>
+        <v-card>
+          <v-card-title primary-title>
+            <aplayer class="audio-page__audio" :audio="post.audio" :loop.sync="loop" :lrcType="0"></aplayer>
+          </v-card-title>
+          <blockquote class="blockquote" v-html="post.content"></blockquote>
+        </v-card>
+      </v-layout>
+    </v-flex>
+  </v-layout>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import * as TYPE from '@/store/actionTypes'
 
 export default {
+  data: () => ({
+    loop: 'none'
+  }),
   computed: {
     ...mapGetters({
       post: `singleAudio/${TYPE.GET_POST}`
@@ -23,6 +39,7 @@ export default {
   created() {
     const { id } = this.$route.query
     this.fetchContent({ id })
+    console.log(this.$store)
   }
 }
 </script>

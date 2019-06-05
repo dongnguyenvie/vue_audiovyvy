@@ -1,16 +1,42 @@
 import * as TYPE from '../../actionTypes'
 import * as MODEL from './mode'
 import { HQL } from '../../../service'
+import _ from 'lodash'
 
 const state = {
   post: {
+    audio: [],
+    categories: {
+      nodes: [
+        {
+          posts: {
+            nodes: []
+          }
+        }
+      ]
+    }
   }
 }
 const getters = {
-  [TYPE.GET_POST]: (state) => state.post
+  [TYPE.GET_POST]: (state) => {
+    if (state.post.audioJson) {
+      state.post.audio = []
+      _.forEach(state.post.audioJson, (v, k) => {
+        state.post.audio.push({
+          url: v,
+          name: k,
+          artist: 'Quỷnh is'
+        })
+      })
+    }
+    return state.post
+  }
 }
 const mutations = {
   [TYPE.SET_POSTS](state, payload) {
+    if (payload.post.audioJson) {
+      payload.post.audioJson = JSON.parse(payload.post.audioJson)
+    }
     state.post = payload.post
     console.log(payload.data)
   }

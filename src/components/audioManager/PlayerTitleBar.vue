@@ -29,6 +29,7 @@
     <v-icon>close</v-icon>
   </v-system-bar>
 </template>
+
 <script>
 export default {
   data() {

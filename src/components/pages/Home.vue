@@ -76,7 +76,7 @@ export default {
   },
   created() {
     this.fetchPosts()
-    console.log(this.$store.state)
+    console.log(this.$store)
     console.log(this.posts)
   }
 }

@@ -35,3 +35,21 @@
   background: #000000c2;
   z-index: 99;
 }
+.audio-page {
+  &__audio {
+    width: 100%;
+    color: #000;
+    background: none;
+  }
+  .aplayer-thumb{
+    transform: scale(1) !important;
+  }
+  .aplayer-played > span {
+    transform: scale(1) !important;
+  }
+}
+.main {
+  &__search{
+    background: #424242;
+  }
+}
