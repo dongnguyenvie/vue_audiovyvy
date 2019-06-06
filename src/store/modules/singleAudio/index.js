@@ -43,16 +43,13 @@ const mutations = {
 }
 const actions = {
   async [TYPE.FETCH_CONTENT_FOR_SINGLE_AUDIO]({ commit }, payload) {
-    commit(TYPE.FETCH, null, { root: true })
     try {
       const res = await HQL.post(null, {
         query: MODEL.GET_POST_BY_ID,
         variables: payload
       })
       commit(TYPE.SET_POSTS, res.data.data)
-      commit(TYPE.DONE, null, { root: true })
     } catch (error) {
-      commit(TYPE.DONE, null, { root: true })
       console.log('err')
     }
   }

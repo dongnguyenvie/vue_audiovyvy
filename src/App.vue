@@ -1,11 +1,25 @@
 <template>
   <div id="app">
     <router-view/>
-    <div class="text-xs-center loading-io" v-if="$store.state.loading">
+    <div class="text-xs-center loading-io" v-if="loading">
       <v-progress-circular :size="50" color="#FF9800" indeterminate></v-progress-circular>
     </div>
   </div>
 </template>
+<script>
+import $bus from './_eventBus'
+export default {
+  data: () => ({
+    loading: true
+  }),
+  created() {
+    $bus.$on('loading', (payload) => {
+      console.log('loading', payload)
+      this.loading = payload
+    })
+  }
+}
+</script>
 
 <style lang="scss">
 // font

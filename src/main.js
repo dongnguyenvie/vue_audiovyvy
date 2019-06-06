@@ -9,7 +9,7 @@ import APlayer from '@moefe/vue-aplayer'
 Vue.config.productionTip = false
 Vue.use(APlayer, {
   defaultCover: 'https://audiovyvy.com/wp-content/themes/audio_quynh_ver_two/img/logo.png',
-  productionTip: true
+  productionTip: false
 })
 Vue.use(Vuetify)
 Filter(Vue)

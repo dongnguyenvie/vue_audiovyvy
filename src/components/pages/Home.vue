@@ -8,7 +8,7 @@
         <v-flex
           v-for="(detail, _key) in post.nodes"
           :key="_key"
-          v-bind="{ [`xs${2}`]: true }"
+          v-bind="{ [`xs${6} sm4 md3 lg2`]: true }"
           class="my-2"
         >
           <router-link
