@@ -1,20 +1,5 @@
 import DefaultContainer from '@/container/DefaultContainer'
 
-const ping = {
-  path: '/ping',
-  component: DefaultContainer,
-  children: [
-    {
-      path: '',
-      name: 'ping-page',
-      meta: {
-        label: 'ping pages',
-        title: 'ping pages'
-      },
-      component: () => import('../views/Ping.vue')
-    }
-  ]
-}
 const pages = {
   path: '/',
   component: DefaultContainer,
@@ -29,8 +14,8 @@ const pages = {
       component: () => import('../views/Home.vue')
     },
     {
-      path: 'single-audio/:slug',
-      name: 'single-audio',
+      path: 'post/:slug',
+      name: 'post',
       meta: {
         label: 'single audio page',
         title: 'single audio page'
@@ -40,4 +25,4 @@ const pages = {
   ]
 }
 
-export default [ping, pages]
+export default [pages]

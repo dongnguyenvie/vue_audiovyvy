@@ -5,7 +5,14 @@
         <div class="headline text-uppercase">Truyện liên quan</div>
       </div>
     </v-card-title>
-    <v-flex v-for="(post, _i) in posts" :key="_i" xs12 class="mb-3">
+    <v-flex
+      v-for="(post, _i) in posts"
+      :key="_i"
+      xs12
+      class="mb-3"
+      cursorPointer
+      @click="_goToPost(post)"
+    >
       <v-card>
         <v-layout row>
           <v-flex xs3>
@@ -23,6 +30,11 @@
 <script>
 export default {
   props: ['posts'],
+  methods: {
+    _goToPost(post) {
+      this.$router.push({ name: 'post', params: { slug: `${post.uri}.html` }, query: { id: post.id } })
+    }
+  },
   created() {
     console.log('side bar', this.posts)
   }

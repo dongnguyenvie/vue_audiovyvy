@@ -13,7 +13,7 @@
         >
           <router-link
             tag="div"
-            :to="{ name: 'single-audio', params: { slug: `${detail.uri}.html`}, query: {id: detail.id}}"
+            :to="{ name: 'post', params: { slug: `${detail.uri}.html`}, query: {id: detail.id}}"
             class="h-100 cursor-point"
           >
             <v-hover>
@@ -54,7 +54,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import * as TYPE from '@/store/actionTypes'
+import * as type from '@/store/actionTypes'
 
 export default {
   data: () => ({
@@ -65,19 +65,18 @@ export default {
     }
   }),
   computed: {
-    ...mapGetters({
-      posts: `posts/${TYPE.GET_POSTS_FOR_HOME}`
+    ...mapGetters('home', {
+      posts: type.home.getters.POSTS
     })
   },
   methods: {
-    ...mapActions({
-      fetchPosts: `posts/${TYPE.FETCH_POSTS_FOR_HOME_PAGE}`
+    ...mapActions('home', {
+      fetchPosts: type.home.actions.FETCH
     })
   },
   created() {
     this.fetchPosts()
-    console.log(this.$store)
-    console.log(this.posts)
+    console.log(`STORE`, this.$store)
   }
 }
 </script>

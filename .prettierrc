@@ -10,5 +10,6 @@
     "bracketSpacing": true,
     "jsxBracketSameLine": true,
     "endOfLine": "auto",
-    "quoteProps": "consistent"
+    "quoteProps": "consistent",
+    "printWidth": 200
 }

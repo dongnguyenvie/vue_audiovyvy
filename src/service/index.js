@@ -5,7 +5,7 @@ const API_BASE_URL = 'https://audiovyvy.com/graphql'
 
 const HQL = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 30000
+  timeout: 60000
 })
 HQL.interceptors.request.use(
   function(config) {
@@ -30,4 +30,41 @@ HQL.interceptors.response.use(
   }
 )
 
-export { HQL }
+export const useQueryHQL = (queries, variables = {}) => {
+  return new Promise((resolve, reject) => {
+    HQL.post(null, { query: queries, variables })
+      .then((response) => {
+        const { data } = response
+        if (data.errors && data.errors.length) {
+          const message = data.errors.map((error) => error.message).join(' ')
+          $bus.$emit('showHandleError', message)
+        }
+        resolve({ data: !data.errors ? data.data : {}, error: data.errors })
+      })
+      .catch((error) => {
+        resolve({
+          data: {},
+          error: [{ category: 'graphql', message: 'error server!!!' }]
+        })
+      })
+  })
+}
+export const useMutationHQL = (queries, variables = {}) => {
+  return new Promise((resolve, reject) => {
+    HQL.post(null, { mutation: queries, variables })
+      .then((response) => {
+        const { data } = response
+        if (data.errors && data.errors.length) {
+          const message = data.errors.map((error) => error.message).join(' ')
+          $bus.$emit('showHandleError', message)
+        }
+        resolve({ data: !data.errors ? data.data : {}, error: data.errors })
+      })
+      .catch((error) => {
+        resolve({
+          data: {},
+          error: [{ category: 'graphql', message: 'error server!!!' }]
+        })
+      })
+  })
+}

@@ -39,7 +39,6 @@ export default {
   created() {
     const { id } = this.$route.query
     this.fetchContent({ id })
-    console.log(this.$store)
   }
 }
 </script>

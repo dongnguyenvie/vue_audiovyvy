@@ -2,7 +2,7 @@
   <Audio/>
 </template>
 <script>
-import Audio from '@/components/pages/audio/Single.vue'
+import Audio from '@/components/pages/single/Single.vue'
 
 export default {
   components: {

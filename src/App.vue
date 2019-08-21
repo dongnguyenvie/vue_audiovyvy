@@ -8,13 +8,13 @@
 </template>
 <script>
 import $bus from './_eventBus'
+
 export default {
   data: () => ({
     loading: true
   }),
   created() {
     $bus.$on('loading', (payload) => {
-      console.log('loading', payload)
       this.loading = payload
     })
   }
@@ -24,6 +24,7 @@ export default {
 <style lang="scss">
 // font
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons');
+
 // style all
-@import '@/assets/scss/style.scss';
+@import './assets/scss/style.scss';
 </style>

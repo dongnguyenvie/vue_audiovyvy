@@ -1,9 +1,13 @@
 import ping from './ping'
-import posts from './posts'
-import singleAudio from './singleAudio'
+import post from './post'
+import home from './home'
+import category from './category'
+import author from './author'
 
 export default {
   ping,
-  posts,
-  singleAudio
+  post,
+  home,
+  category,
+  author
 }
