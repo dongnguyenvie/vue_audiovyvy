@@ -16,13 +16,16 @@ export const GET_POST = 'GET_POST'
 
 export const category = {
   mutations: {
-    SET: ''
+    SET: '',
+    SET_POSTS: ''
   },
   getters: {
-    CATEGORIES: ''
+    CATEGORIES: '',
+    POSTS: ''
   },
   actions: {
-    FETCH_ALL: ''
+    FETCH_ALL: '',
+    FETCH_POSTS: ''
   }
 }
 

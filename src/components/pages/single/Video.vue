@@ -21,7 +21,7 @@ export default {
   }),
   computed: {
     currentVideo() {
-      return `https://www.youtube.com/embed/videoseries?list=${this.data[this.selected]}&rel=0&fs=0&modestbranding=1`
+      return `https://www.youtube.com/embed/videoseries?list=${this.data[this.selected - 1]}&rel=0&fs=0&modestbranding=1`
     }
   },
   created() {
